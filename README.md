@@ -1,6 +1,8 @@
 # AMAN Portfolio Website
 
-A modern portfolio website for AMAN, a music producer and sound architect. It showcases commercial music production, a released discography, custom jingles, and studio philosophy.
+AMAN is a music producer and sound architect focused on modern music production and audio branding.
+
+**Live Site:** [https://thisisamann.netlify.app/](https://thisisamann.netlify.app/)
 
 ## Features
 
