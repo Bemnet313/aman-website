@@ -11,7 +11,7 @@ const jinglesData = [
     client: 'Habesha Beer',
     title: 'Cold Gold Commercial',
     logo: '/logos/habesha_beer.webp',
-    bgImage: '/logos/habesha-campaign.png',
+    bgImage: '/assets/habesha-background-jingle.jpg',
     audioSrc: '/audio/habesha.mp3',
   },
   {
@@ -19,7 +19,7 @@ const jinglesData = [
     client: 'Sanpolo',
     title: 'Motor Campaign',
     logo: '/logos/sanpolo-logo-.webp',
-    bgImage: '/logos/img_3677.webp',
+    bgImage: '/assets/sanpaolo-background-jingle.png',
     audioSrc: '/audio/sanpolo.mp3',
   },
   {
@@ -27,7 +27,7 @@ const jinglesData = [
     client: 'Yango',
     title: 'Brand Anthem',
     logo: '/logos/yango-logo.webp',
-    bgImage: '/logos/sanpolo-campaign.jpg',
+    bgImage: '/assets/yango-background-jingle.jpg',
     audioSrc: '/audio/yango.mp3',
   }
 ];
@@ -122,14 +122,15 @@ const JingleCard = ({
     >
       {/* Dynamic Background Image (if available) */}
       {jingle.bgImage && (
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden rounded-[32px]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img 
             src={jingle.bgImage} 
             alt={`${jingle.client} Campaign`} 
-            className={`w-full h-full object-cover opacity-60 transition-transform duration-[10s] ease-out ${isHovered || isPlaying ? 'scale-110' : 'scale-100'}`}
+            className={`w-full h-full object-cover transition-transform duration-[10s] ease-out ${isHovered || isPlaying ? 'scale-110' : 'scale-100'}`}
+            style={{ opacity: isHovered || isPlaying ? 0.8 : 0.5 }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0d2c2c] via-[#0d2c2c]/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0d2c2c] via-[#0d2c2c]/60 to-[#0d2c2c]/20" />
         </div>
       )}
 
@@ -154,12 +155,14 @@ const JingleCard = ({
               {jingle.title}
             </h3>
           </div>
-          <Magnetic>
-            <div className="w-20 h-20 md:w-24 md:h-24 rounded-[20px] bg-white/5 border border-white/10 flex items-center justify-center p-2 md:p-3 overflow-hidden group-hover:bg-white/10 transition-all shadow-xl hover:shadow-[#5eead4]/20 cursor-pointer">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={jingle.logo} alt="" className="w-full h-full object-contain rounded-xl group-hover:scale-110 transition-transform duration-500" />
-            </div>
-          </Magnetic>
+          {!['habesha', 'yango', 'sampolo'].includes(jingle.id) && (
+            <Magnetic>
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-[20px] bg-white/5 border border-white/10 flex items-center justify-center p-2 md:p-3 overflow-hidden group-hover:bg-white/10 transition-all shadow-xl hover:shadow-[#5eead4]/20 cursor-pointer">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={jingle.logo} alt="" className="w-full h-full object-contain rounded-xl group-hover:scale-110 transition-transform duration-500" />
+              </div>
+            </Magnetic>
+          )}
         </div>
 
         {/* Player Core */}

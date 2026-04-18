@@ -35,7 +35,7 @@ export default function About() {
           
           <div className="overflow-hidden py-1">
             <motion.p variants={maskItem} initial="hidden" animate={isInView ? "show" : "hidden"}>
-              Amanuel Dawit (AMAN) is a pioneering Ethiopian producer shaping the Addis soundscape since 2015. His journey began at 14, crafting beats on a modest Acer laptop with pure determination.
+              Amanuel Dawit (AMAN) is a pioneering Ethiopian producer shaping the Addis soundscape since 2015. His journey began at 14, pushing a budget Acer with a broken hinge to its limits.
             </motion.p>
           </div>
           

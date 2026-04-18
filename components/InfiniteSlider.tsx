@@ -66,6 +66,7 @@ export default function InfiniteSlider() {
     { src: '/logos/menew-shewa-logo-.webp', alt: 'Menew Shewa' },
     { src: '/logos/addis-abab-admin-logo-.webp', alt: 'Addis Ababa Admin' },
     { src: '/logos/grub-on-burger-.webp', alt: 'Grub On Burger' },
+    { src: '/logos/tigat.png', alt: 'Tigat Rec' },
   ];
 
   return (
