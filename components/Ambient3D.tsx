@@ -1,8 +1,22 @@
 'use client';
-import { useRef, useMemo } from 'react';
+import React, { useRef, useMemo, useState, useEffect, Component, ErrorInfo, ReactNode } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
+
+class ErrorBoundary extends Component<{children: ReactNode}, {hasError: boolean}> {
+  state = { hasError: false };
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    console.warn("WebGL or Canvas error caught:", error, errorInfo);
+  }
+  render() {
+    if (this.state.hasError) return null;
+    return this.props.children;
+  }
+}
 
 function ParticleCloud() {
   const ref = useRef<THREE.Points>(null);
@@ -47,11 +61,31 @@ function ParticleCloud() {
 }
 
 export default function Ambient3D() {
+  const [hasWebGL, setHasWebGL] = useState(true);
+
+  useEffect(() => {
+    try {
+      const canvas = document.createElement('canvas');
+      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      if (!gl) {
+        setHasWebGL(false);
+      }
+    } catch {
+      setHasWebGL(false);
+    }
+  }, []);
+
+  if (!hasWebGL) {
+    return null;
+  }
+
   return (
     <div className="absolute inset-0 z-0 pointer-events-none opacity-50">
-      <Canvas camera={{ position: [0, 0, 10], fov: 60 }}>
-        <ParticleCloud />
-      </Canvas>
+      <ErrorBoundary>
+        <Canvas camera={{ position: [0, 0, 10], fov: 60 }}>
+          <ParticleCloud />
+        </Canvas>
+      </ErrorBoundary>
     </div>
   );
 }

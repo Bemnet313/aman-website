@@ -35,19 +35,19 @@ export default function About() {
           
           <div className="overflow-hidden py-1">
             <motion.p variants={maskItem} initial="hidden" animate={isInView ? "show" : "hidden"}>
-              Amanuel Dawit started producing at 14 on a borrowed laptop. His first setup was a tiny 28GB Acer, quietly crafting 90s remixes in Addis Ababa.
+              Amanuel Dawit (AMAN) is a pioneering Ethiopian producer shaping the Addis soundscape since 2015. His journey began at 14, crafting beats on a modest Acer laptop with pure determination.
             </motion.p>
           </div>
           
           <div className="overflow-hidden py-1">
             <motion.p variants={maskItem} initial="hidden" animate={isInView ? "show" : "hidden"} transition={{ delay: 0.1 }} className="text-[#5eead4] font-normal">
-              Today, AMAN merges global House and Future Bass with authentic Ethiopian <span className="italic">six/eight</span> rhythms.
+              His signature sound is a vibrant fusion of global House and EDM, boldly incorporating traditional Ethiopian instruments and tribal rhythms.
             </motion.p>
           </div>
           
           <div className="overflow-hidden py-1">
             <motion.p variants={maskItem} initial="hidden" animate={isInView ? "show" : "hidden"} transition={{ delay: 0.2 }}>
-              Inspired by legends like Avicii, his breakout track <span className="text-white font-semibold">&apos;Kal&apos;</span> shattered expectations, pulling 7M+ views and earning dual Addis Music Award nominations.
+              With his breakthrough track <span className="text-white font-semibold">&apos;Kal&apos;</span> amassing 9.1M+ views and earning dual Addis Music Award nominations, AMAN continues to invite listeners to <span className="text-white">&quot;Embrace Your True Self.&quot;</span>
             </motion.p>
           </div>
 

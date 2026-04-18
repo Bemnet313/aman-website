@@ -8,7 +8,7 @@ const Ambient3D = dynamic(() => import('./Ambient3D'), { ssr: false });
 const arsenalItems = [
   {
     category: 'DAW / ENGINE',
-    name: 'FL Studio 21',
+    name: 'FL Studio 25',
     description: 'The primary heart of AMAN’s production. Favored for its intuitive step sequencer, crucial for crafting complex Ethiopian 6/8 and 12/8 patterns.',
     icon: <Settings size={48} className="text-[#5eead4]" />
   },
@@ -26,7 +26,7 @@ const arsenalItems = [
   },
   {
     category: 'HARDWARE',
-    name: 'M-Audio Oxygen & Focusrite',
+    name: 'Focusrite',
     description: 'Tactile control over every melodic idea. Minimal latency, maximum creative flow.',
     icon: <Monitor size={48} className="text-white/60" />
   }
@@ -49,7 +49,7 @@ export default function Arsenal() {
           <div className="mt-2 md:mt-0 text-slate-400 font-light flex flex-col items-start md:items-end text-left md:text-right">
             <Cpu className="text-[#5eead4] mb-4" size={32} />
             <p className="max-w-xs eyebrow text-white/80 mb-2">Technical Rider v2026</p>
-            <p className="max-w-sm leading-relaxed">A look into the digital and analog tools used to define the modern Ethiopian sonic landscape.</p>
+            <p className="max-w-sm leading-relaxed">A look into the digital and analog tools used to create modern Ethiopian music.</p>
           </div>
         </div>
 

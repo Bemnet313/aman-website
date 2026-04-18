@@ -1,18 +1,17 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import { useMotionValueEvent, useReducedMotion, useScroll, useSpring } from 'framer-motion';
+import { MotionValue, useMotionValueEvent, useReducedMotion, useSpring } from 'framer-motion';
 
-const TOTAL_FRAMES = 51;
+const TOTAL_FRAMES = 66;
 
-export default function HeroCanvas() {
+export default function HeroCanvas({ progress }: { progress: MotionValue<number> }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imagesRef = useRef<Array<HTMLImageElement | null>>(Array(TOTAL_FRAMES).fill(null));
   const [loaded, setLoaded] = useState(0);
   const [isReady, setIsReady] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
-  const { scrollYProgress } = useScroll();
-  const smoothProgress = useSpring(scrollYProgress, {
+  const smoothProgress = useSpring(progress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001
@@ -111,9 +110,21 @@ export default function HeroCanvas() {
 
     loadFrame(0);
 
+    // Progressive loading: Load the rest after the first frame is ready
     if (!prefersReducedMotion) {
-      for (let i = 1; i < TOTAL_FRAMES; i++) {
-        loadFrame(i);
+      const loadOthers = () => {
+        for (let i = 1; i < TOTAL_FRAMES; i++) {
+          // Delay loading of later frames slightly to prioritize network for initial assets
+          setTimeout(() => {
+            if (isMounted) loadFrame(i);
+          }, i * 20); 
+        }
+      };
+
+      if (window.requestIdleCallback) {
+        window.requestIdleCallback(loadOthers);
+      } else {
+        setTimeout(loadOthers, 100);
       }
     }
 

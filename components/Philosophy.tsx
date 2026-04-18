@@ -22,7 +22,7 @@ export default function Philosophy() {
       <motion.div 
         className="absolute inset-0 z-0 opacity-10 mix-blend-screen bg-cover bg-center filter grayscale"
         style={{ 
-          backgroundImage: 'url(/assets/aman.jpeg)',
+          backgroundImage: 'url(/assets/aman.webp)',
           y: prefersReducedMotion ? '0%' : backgroundY
         }}
       />
@@ -30,13 +30,13 @@ export default function Philosophy() {
       <div className="relative z-10 w-full flex flex-col space-y-8">
         <motion.div style={prefersReducedMotion ? undefined : { x: x1 }} className="whitespace-nowrap">
           <h2 className="text-[12vw] font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white/10 to-white/30 uppercase leading-none">
-            SIMPLICITY • CREATIVITY • FUSION • SIMPLICITY • CREATIVITY • FUSION
+            AUTHENTICITY • IMPROVISATION • INNOVATION • AUTHENTICITY • IMPROVISATION
           </h2>
         </motion.div>
         
         <div className="w-full max-w-5xl mx-auto px-10 md:px-0 py-10">
           <p className="text-3xl md:text-5xl font-light text-white leading-tight text-center">
-            &quot;I&apos;m not just a music producer but an <span className="text-[#5eead4] italic">artist</span>—I incorporate elements of professionalism, playful experimentation, and <span className="font-semibold border-b-2 border-[#5eead4]">fearless creativity</span> into my compositions.&quot;
+            &quot;Music is a dynamic exploration of sounds that <span className="text-[#5eead4] italic">embrace cultural identity</span> while pushing creative boundaries through fearless improvisation.&quot;
           </p>
         </div>
 

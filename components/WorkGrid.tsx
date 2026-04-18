@@ -66,7 +66,7 @@ export default function WorkGrid() {
               
               <div className="absolute bottom-12 left-12 z-10">
                 <h3 className="text-6xl md:text-8xl font-bold tracking-tighter mb-4 text-white group-hover:text-[#5eead4] transition-colors">&apos;{kal.title}&apos;</h3>
-                <p className="text-slate-300 text-xl md:text-2xl font-light">{kal.artist} • 7M+ Views</p>
+                <p className="text-slate-300 text-xl md:text-2xl font-light">{kal.artist} • 9.1M+ Views</p>
               </div>
               
               <div className="absolute top-8 right-8 z-10">
