@@ -26,5 +26,9 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./out/
           server-dir: ./httpdocs/
+          # Advanced settings for tough firewalls
           protocol: ftp
           port: 21
+          # Try setting to false if timeout continues
+          passive: true
+          timeout: 90000
