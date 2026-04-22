@@ -12,14 +12,14 @@ export default function Discography() {
   const releases = [...amanMusicVideos, amanUpcomingRelease];
 
   return (
-    <section className="w-full py-28 md:py-32 px-6 sm:px-10 md:px-32 bg-[#061414] relative z-20 overflow-hidden">
+    <section className="w-full py-16 md:py-32 px-6 sm:px-10 md:px-32 bg-[#061414] relative z-20 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 md:mb-20 gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 gap-8">
           <motion.h2 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="text-5xl sm:text-6xl md:text-8xl font-bold tracking-[-0.06em] leading-[0.94] text-white"
+            className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-[-0.06em] leading-[0.94] text-white"
           >
             THE<br/><span className="text-[#5eead4]">CATALOG</span>
           </motion.h2>
@@ -28,7 +28,7 @@ export default function Discography() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 pb-4 md:pb-0">
           {releases.map((release, index) => (
             <motion.div 
               key={index}
@@ -36,17 +36,17 @@ export default function Discography() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="surface-card rounded-[28px] p-4 md:p-5 group relative"
+              className="surface-card rounded-[28px] p-4 md:p-5 group relative snap-center min-w-[85vw] md:min-w-0"
             >
               <div className="aspect-square w-full bg-black rounded-[22px] overflow-hidden mb-6 relative shadow-[0_18px_50px_rgba(0,0,0,0.24)]">
                 <div 
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-[1.06] opacity-60 group-hover:opacity-100 mix-blend-luminosity group-hover:mix-blend-normal"
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 md:group-hover:scale-[1.06] opacity-60 md:group-hover:opacity-100 mix-blend-luminosity md:group-hover:mix-blend-normal"
                   style={{ backgroundImage: `url(${release.image})` }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent group-hover:from-black/35 transition-colors duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent md:group-hover:from-black/35 transition-colors duration-500" />
                 
-                {/* Hover Play Button */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                {/* Hover Play Button - Only on desktop */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 md:group-hover:opacity-100 transition-opacity duration-500">
                   {hasVideoUrl(release) ? (
                     <Magnetic>
                       <a
@@ -85,7 +85,7 @@ export default function Discography() {
                     href={release.videoUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="button-shell inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#5eead4] hover:text-white transition-colors"
+                    className="button-shell inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#5eead4] md:hover:text-white transition-colors"
                   >
                     Watch official video
                     <ExternalLink size={16} />

@@ -29,21 +29,21 @@ const TIMELINE_BEATS = [
     id: 'commercial',
     title: <>COMMERCIAL<br/>MUSIC</>,
     description: 'Creating custom music and audio branding for global brands.',
-    className: 'absolute top-[85vh] md:top-[105vh] w-full h-screen flex flex-col items-end justify-center px-6 sm:px-10 md:px-32 text-right',
+    className: 'absolute top-[90vh] md:top-[105vh] w-full h-screen flex flex-col items-end justify-center px-6 sm:px-10 md:px-32 text-right',
     alignment: 'end'
   },
   {
     id: 'catalog',
     title: <>RELEASED<br/>WORKS</>,
     description: 'From underground anthems to chart-topping studio production.',
-    className: 'absolute top-[170vh] md:top-[210vh] w-full h-screen flex flex-col items-start justify-center px-6 sm:px-10 md:px-32',
+    className: 'absolute top-[180vh] md:top-[210vh] w-full h-screen flex flex-col items-start justify-center px-6 sm:px-10 md:px-32',
     alignment: 'start'
   },
   {
     id: 'void',
     title: <>EXPLORE<br/>THE WORK</>,
     description: 'Scroll down to listen to the catalog',
-    className: 'absolute top-[255vh] md:top-[315vh] w-full h-screen flex flex-col items-center justify-center px-6 sm:px-10 md:px-32 text-center pointer-events-none',
+    className: 'absolute top-[270vh] md:top-[315vh] w-full h-screen flex flex-col items-center justify-center px-6 sm:px-10 md:px-32 text-center pointer-events-none',
     alignment: 'center'
   }
 ];
@@ -93,7 +93,7 @@ export default function Home() {
                 {beat.subtitle && (
                   <motion.span 
                     variants={maskReveal} initial="hidden" whileInView="show" viewport={{ once: true }}
-                    className="text-3xl sm:text-4xl md:text-[3.2rem] font-serif text-[#e4efed] opacity-100 mb-1 md:mb-2 ml-14 sm:ml-20 md:ml-32 tracking-wide relative z-10"
+                    className="text-2xl sm:text-4xl md:text-[3.2rem] font-serif text-[#e4efed] opacity-100 mb-1 md:mb-2 ml-8 sm:ml-20 md:ml-32 tracking-wide relative z-10"
                   >
                     {beat.subtitle}
                   </motion.span>
@@ -101,14 +101,14 @@ export default function Home() {
                 <motion.h1 
                   style={beat.id === 'void' && !prefersReducedMotion ? { textShadow } : undefined}
                   variants={maskReveal} initial="hidden" whileInView="show" viewport={{ once: true }}
-                  className={`text-massive font-bold tracking-tighter leading-[0.85] mb-2 relative z-0 ${beat.id === 'architect' ? 'text-white' : 'opacity-90'}`}
+                  className={`text-7xl md:text-massive font-bold tracking-tighter leading-[0.85] mb-2 relative z-0 ${beat.id === 'architect' ? 'text-white' : 'opacity-90'}`}
                 >
                   {beat.title}
                 </motion.h1>
               </div>
               <motion.p 
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-                className={`text-lg sm:text-xl md:text-3xl font-light leading-relaxed mt-1 ${beat.id === 'architect' ? 'text-white/60' : 'text-slate-400'}`}
+                className={`text-base sm:text-xl md:text-3xl font-light leading-relaxed mt-1 ${beat.id === 'architect' ? 'text-white/60' : 'text-slate-400'}`}
               >
                 {beat.description}
               </motion.p>

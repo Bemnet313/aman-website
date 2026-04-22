@@ -62,7 +62,6 @@ export default function InfiniteSlider() {
     { src: '/logos/mpesa-logo-.webp', alt: 'M-Pesa' },
     { src: '/logos/img_3677.webp', alt: 'Partner Logo 1' },
     { src: '/logos/selam-ethiopia-.webp', alt: 'Selam Ethiopia' },
-    { src: '/logos/img_3678.webp', alt: 'Partner Logo 2' },
     { src: '/logos/menew-shewa-logo-.webp', alt: 'Menew Shewa' },
     { src: '/logos/addis-abab-admin-logo-.webp', alt: 'Addis Ababa Admin' },
     { src: '/logos/grub-on-burger-.webp', alt: 'Grub On Burger' },

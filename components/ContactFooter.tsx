@@ -69,26 +69,26 @@ export default function ContactFooter() {
   };
 
   return (
-    <section className="w-full bg-[#000000] text-white pt-28 md:pt-32 pb-10 px-6 sm:px-10 md:px-32 relative z-30">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 mb-32">
+    <section className="w-full bg-[#000000] text-white pt-16 md:pt-32 pb-10 px-6 sm:px-10 md:px-32 relative z-30">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 mb-16 md:mb-32">
         {/* Left Column: Title & Direct Info */}
         <div className="flex flex-col justify-between">
           <div>
-            <h2 className="text-6xl sm:text-7xl md:text-9xl font-bold tracking-[-0.07em] mb-6 leading-[0.9]">
+            <h2 className="text-4xl sm:text-7xl md:text-9xl font-bold tracking-[-0.07em] mb-6 leading-[0.9]">
               LET&apos;S<br/>WORK<br/><span className="text-[#5eead4]">TOGETHER.</span>
             </h2>
-            <p className="text-xl md:text-2xl text-slate-400 font-light max-w-md mt-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-slate-400 font-light max-w-md mt-4 md:mt-8 leading-relaxed">
               Ready to discuss your project? Send me the details below.
             </p>
           </div>
 
-          <div className="mt-20 space-y-4">
-            <a href="mailto:info@thisizaman.com" className="flex items-center space-x-4 text-slate-400 hover:text-[#5eead4] transition-colors text-lg md:text-xl font-light w-fit group tracking-[0.01em]">
-              <Mail size={20} className="group-hover:scale-110 transition-transform" />
+          <div className="mt-12 md:mt-20 space-y-4">
+            <a href="mailto:info@thisizaman.com" className="flex items-center space-x-4 text-slate-400 md:hover:text-[#5eead4] transition-colors text-lg md:text-xl font-light w-fit group tracking-[0.01em]">
+              <Mail size={20} className="md:group-hover:scale-110 transition-transform" />
               <span>info@thisizaman.com</span>
             </a>
-            <a href="tel:+251981879207" className="flex items-center space-x-4 text-slate-400 hover:text-[#5eead4] transition-colors text-lg md:text-xl font-light w-fit group tracking-[0.01em]">
-              <Phone size={20} className="group-hover:scale-110 transition-transform" />
+            <a href="tel:+251981879207" className="flex items-center space-x-4 text-slate-400 md:hover:text-[#5eead4] transition-colors text-lg md:text-xl font-light w-fit group tracking-[0.01em]">
+              <Phone size={20} className="md:group-hover:scale-110 transition-transform" />
               <span>+251 981 879 207</span>
             </a>
           </div>
@@ -176,11 +176,11 @@ export default function ContactFooter() {
                   {/* We can't easily show a dynamic counter in a stateless way here without more refactoring, but maxLength will enforce the limit */}
                 </div>
               </div>
-              <Magnetic className="self-start">
+              <Magnetic className="self-start w-full md:w-auto">
                 <button 
                   type="submit" 
                   disabled={status === 'loading'}
-                  className="button-shell text-base md:text-lg font-bold tracking-[0.22em] uppercase border-[#5eead4] text-[#5eead4] px-8 md:px-10 hover:bg-[#5eead4] hover:text-black transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="button-shell w-full md:w-auto text-base md:text-lg font-bold tracking-[0.22em] uppercase border-[#5eead4] text-[#5eead4] px-8 md:px-10 md:hover:bg-[#5eead4] md:hover:text-black transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {status === 'loading' ? 'Sending...' : 'Send Message'}
                 </button>

@@ -31,15 +31,15 @@ export default function WorkGrid() {
 
   return (
     <>
-      <section className="w-full py-32 px-10 md:px-32 bg-[#0d2c2c] relative z-20">
+      <section className="w-full py-16 md:py-32 px-6 md:px-32 bg-[#0d2c2c] relative z-20">
         <div className="max-w-7xl mx-auto">
-          <div className="overflow-hidden mb-20">
+          <div className="overflow-hidden mb-12 md:mb-20">
             <motion.h2 
               initial={{ y: "100%" }}
               whileInView={{ y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="text-6xl md:text-8xl font-bold tracking-tighter text-white/90"
+              className="text-4xl md:text-8xl font-bold tracking-tighter text-white/90"
             >
               SELECTED<br/><span className="text-[#5eead4]">WORKS</span>
             </motion.h2>
@@ -59,21 +59,21 @@ export default function WorkGrid() {
             >
               {/* YouTube Thumbnail Background */}
               <div 
-                className="absolute inset-0 bg-cover bg-center z-0 opacity-40 group-hover:opacity-60 transition-opacity duration-700 mix-blend-luminosity"
+                className="absolute inset-0 bg-cover bg-center z-0 opacity-40 md:group-hover:opacity-60 transition-opacity duration-700 mix-blend-luminosity"
                 style={{ backgroundImage: `url(${kal.image})` }}
               ></div>
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-0"></div>
               
-              <div className="absolute bottom-12 left-12 z-10">
-                <h3 className="text-6xl md:text-8xl font-bold tracking-tighter mb-4 text-white group-hover:text-[#5eead4] transition-colors">&apos;{kal.title}&apos;</h3>
-                <p className="text-slate-300 text-xl md:text-2xl font-light">{kal.artist} • 9.1M+ Views</p>
+              <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12 z-10">
+                <h3 className="text-4xl md:text-8xl font-bold tracking-tighter mb-4 text-white md:group-hover:text-[#5eead4] transition-colors">&apos;{kal.title}&apos;</h3>
+                <p className="text-slate-300 text-lg md:text-2xl font-light">{kal.artist} • 9.1M+ Views</p>
               </div>
               
-              <div className="absolute top-8 right-8 z-10">
+              <div className="absolute top-6 right-6 md:top-8 md:right-8 z-10">
                 <Magnetic>
-                  <div className="px-6 py-3 border border-white/20 rounded-full backdrop-blur-sm flex items-center space-x-2 hover:bg-white/10 transition-colors">
-                    <Play size={16} fill="currentColor" />
-                    <span className="text-sm tracking-widest uppercase">Watch Video</span>
+                  <div className="px-4 py-2 md:px-6 md:py-3 border border-white/20 rounded-full backdrop-blur-sm flex items-center space-x-2 md:hover:bg-white/10 transition-colors">
+                    <Play size={14} className="md:size-[16px]" fill="currentColor" />
+                    <span className="text-xs md:text-sm tracking-widest uppercase">Watch Video</span>
                   </div>
                 </Magnetic>
               </div>
@@ -90,19 +90,19 @@ export default function WorkGrid() {
               style={{ perspective: 1000 }}
             >
               <div 
-                className="absolute inset-0 bg-cover bg-center z-0 opacity-30 group-hover:opacity-50 transition-opacity duration-700 mix-blend-luminosity"
+                className="absolute inset-0 bg-cover bg-center z-0 opacity-30 md:group-hover:opacity-50 transition-opacity duration-700 mix-blend-luminosity"
                 style={{ backgroundImage: `url(${kalabay.image})` }}
               ></div>
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-0"></div>
 
-              <div className="absolute bottom-10 left-10 z-10">
-                <h3 className="text-4xl md:text-5xl font-bold tracking-tighter mb-2 text-white">&apos;{kalabay.title}&apos;</h3>
-                <p className="text-[#5eead4] text-lg font-light">Ethiopian Future Bass</p>
+              <div className="absolute bottom-8 left-8 md:bottom-10 md:left-10 z-10">
+                <h3 className="text-3xl md:text-5xl font-bold tracking-tighter mb-2 text-white">&apos;{kalabay.title}&apos;</h3>
+                <p className="text-[#5eead4] text-base md:text-lg font-light">Ethiopian Future Bass</p>
               </div>
-              <div className="absolute top-8 right-8 z-10">
+              <div className="absolute top-6 right-6 md:top-8 md:right-8 z-10">
                 <Magnetic>
-                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center backdrop-blur-md hover:bg-white/20 transition-colors">
-                    <Play size={16} fill="currentColor" />
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center backdrop-blur-md md:hover:bg-white/20 transition-colors">
+                    <Play size={14} className="md:size-[16px]" fill="currentColor" />
                   </div>
                 </Magnetic>
               </div>
@@ -113,25 +113,25 @@ export default function WorkGrid() {
               type="button"
               onClick={() => setActiveVideo(anemogn.videoId)}
               aria-label={`Open ${anemogn.title} video`}
-              className="relative group overflow-hidden bg-[#051111] border border-white/5 rounded-3xl flex flex-col items-start justify-end p-10 text-left appearance-none"
+              className="relative group overflow-hidden bg-[#051111] border border-white/5 rounded-3xl flex flex-col items-start justify-end p-8 md:p-10 text-left appearance-none"
               whileHover={{ scale: 0.98, rotateX: -2, rotateY: 2 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
               style={{ perspective: 1000 }}
             >
               <div 
-                className="absolute inset-0 bg-cover bg-center z-0 opacity-20 group-hover:opacity-40 transition-opacity duration-700 mix-blend-luminosity"
+                className="absolute inset-0 bg-cover bg-center z-0 opacity-20 md:group-hover:opacity-40 transition-opacity duration-700 mix-blend-luminosity"
                 style={{ backgroundImage: `url(${anemogn.image})` }}
               ></div>
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent z-0"></div>
 
               <div className="z-10 relative">
-                <h3 className="text-3xl md:text-4xl font-bold tracking-tighter mb-2 text-white">&apos;{anemogn.title}&apos;</h3>
-                <p className="text-slate-400 text-sm md:text-base font-light">House meets Six/Eight Rhythm</p>
+                <h3 className="text-2xl md:text-4xl font-bold tracking-tighter mb-2 text-white">&apos;{anemogn.title}&apos;</h3>
+                <p className="text-slate-400 text-xs md:text-base font-light">House meets Six/Eight Rhythm</p>
               </div>
-              <div className="absolute top-8 right-8 z-10">
+              <div className="absolute top-6 right-6 md:top-8 md:right-8 z-10">
                 <Magnetic>
-                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center backdrop-blur-md hover:bg-white/20 transition-colors">
-                    <Play size={16} fill="currentColor" />
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center backdrop-blur-md md:hover:bg-white/20 transition-colors">
+                    <Play size={14} className="md:size-[16px]" fill="currentColor" />
                   </div>
                 </Magnetic>
               </div>
@@ -148,19 +148,19 @@ export default function WorkGrid() {
               style={{ perspective: 1000 }}
             >
               <div 
-                className="absolute inset-0 bg-cover bg-center z-0 opacity-30 group-hover:opacity-60 transition-opacity duration-700 mix-blend-luminosity"
+                className="absolute inset-0 bg-cover bg-center z-0 opacity-30 md:group-hover:opacity-60 transition-opacity duration-700 mix-blend-luminosity"
                 style={{ backgroundImage: `url(${pressVideo.image})` }}
               ></div>
                <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-0"></div>
                
-              <div className="absolute bottom-10 left-10 z-10 w-2/3">
-                <h3 className="text-5xl md:text-6xl font-bold tracking-tighter mb-2 text-white">{pressVideo.title}</h3>
-                <p className="text-slate-400 text-xl font-light">{pressVideo.description}</p>
+              <div className="absolute bottom-8 left-8 md:bottom-10 md:left-10 z-10 w-full md:w-2/3 pr-8">
+                <h3 className="text-3xl md:text-6xl font-bold tracking-tighter mb-2 text-white">{pressVideo.title}</h3>
+                <p className="text-slate-400 text-base md:text-xl font-light">{pressVideo.description}</p>
               </div>
-              <div className="absolute top-10 right-10 z-10">
+              <div className="absolute top-6 right-6 md:top-10 md:right-10 z-10">
                 <Magnetic>
-                  <div className="w-16 h-16 rounded-full bg-[#5eead4] text-black flex items-center justify-center backdrop-blur-md hover:scale-110 transition-transform">
-                    <Play size={20} fill="currentColor" />
+                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#5eead4] text-black flex items-center justify-center backdrop-blur-md md:hover:scale-110 transition-transform">
+                    <Play size={16} className="md:size-[20px]" fill="currentColor" />
                   </div>
                 </Magnetic>
               </div>

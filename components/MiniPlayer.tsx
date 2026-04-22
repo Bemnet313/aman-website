@@ -35,7 +35,7 @@ export default function MiniPlayer() {
                     href={track.videoUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-3 py-3 text-sm text-white transition-colors hover:border-[#5eead4]/50 hover:bg-white/10"
+                    className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-4 md:px-3 md:py-3 text-sm text-white transition-colors md:hover:border-[#5eead4]/50 md:hover:bg-white/10"
                   >
                     <span>
                       <span className="block font-semibold">{track.title}</span>
@@ -51,12 +51,12 @@ export default function MiniPlayer() {
       </AnimatePresence>
 
       <motion.button
-        className="w-14 h-14 rounded-full bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center hover:bg-white/10 transition-colors text-white magnetic-target group"
+        className="w-16 h-16 md:w-14 md:h-14 rounded-full bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center md:hover:bg-white/10 transition-colors text-white magnetic-target group"
         onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        {isOpen ? <X size={20} className="text-slate-400 group-hover:text-white" /> : <Music size={20} className="text-[#5eead4] group-hover:text-white" />}
+        {isOpen ? <X size={20} className="text-slate-400 md:group-hover:text-white" /> : <Music size={20} className="text-[#5eead4] md:group-hover:text-white" />}
       </motion.button>
     </div>
   );

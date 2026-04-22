@@ -15,7 +15,7 @@ export default function About() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="w-full py-28 md:py-40 px-6 sm:px-10 md:px-32 bg-[#0d2c2c] relative z-20 overflow-hidden" ref={ref}>
+    <section className="w-full py-16 md:py-40 px-6 sm:px-10 md:px-32 bg-[#0d2c2c] relative z-20 overflow-hidden" ref={ref}>
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-12 items-center">
         
         {/* Left Column - Large Vertical Text on Desktop */}
@@ -24,7 +24,7 @@ export default function About() {
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 1 }}
-            className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-[-0.08em] opacity-[0.08] lg:-rotate-180 lg:[writing-mode:vertical-rl]"
+            className="text-4xl md:text-8xl lg:text-9xl font-bold tracking-[-0.08em] opacity-[0.08] lg:-rotate-180 lg:[writing-mode:vertical-rl]"
           >
             BIOGRAPHY
           </motion.h2>

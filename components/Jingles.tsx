@@ -56,7 +56,6 @@ const JingleCard = ({
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
 
   const isPlaying = activeId === jingle.id;
 
@@ -116,9 +115,7 @@ const JingleCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: index * 0.15 }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className={`relative overflow-hidden rounded-[32px] p-8 flex flex-col group transition-all duration-500 border hover:border-[#5eead4]/40 ${jingle.bgImage ? 'border-white/20 hover:shadow-[0_0_40px_rgba(94,234,212,0.15)]' : 'bg-white/[0.03] border-white/10 hover:bg-white/[0.05]'}`}
+      className={`relative overflow-hidden rounded-[32px] p-8 flex flex-col group transition-all duration-500 border md:hover:border-[#5eead4]/40 ${jingle.bgImage ? 'border-white/20 md:hover:shadow-[0_0_40px_rgba(94,234,212,0.15)]' : 'bg-white/[0.03] border-white/10 md:hover:bg-white/[0.05]'}`}
     >
       {/* Dynamic Background Image (if available) */}
       {jingle.bgImage && (
@@ -127,8 +124,7 @@ const JingleCard = ({
           <img 
             src={jingle.bgImage} 
             alt={`${jingle.client} Campaign`} 
-            className={`w-full h-full object-cover transition-transform duration-[10s] ease-out ${isHovered || isPlaying ? 'scale-110' : 'scale-100'}`}
-            style={{ opacity: isHovered || isPlaying ? 0.8 : 0.5 }}
+            className={`w-full h-full object-cover transition-transform duration-[10s] ease-out ${isPlaying ? 'scale-110 opacity-80' : 'scale-100 opacity-50'} md:group-hover:scale-110 md:group-hover:opacity-80`}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0d2c2c] via-[#0d2c2c]/60 to-[#0d2c2c]/20" />
         </div>
@@ -137,7 +133,7 @@ const JingleCard = ({
       {/* Dynamic Background Glow (for standard cards) */}
       {!jingle.bgImage && (
         <div 
-          className={`absolute inset-0 bg-gradient-to-br from-[#5eead4]/5 to-transparent transition-opacity duration-1000 z-0 ${isHovered || isPlaying ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute inset-0 bg-gradient-to-br from-[#5eead4]/5 to-transparent transition-opacity duration-1000 z-0 ${isPlaying ? 'opacity-100' : 'opacity-0'} md:group-hover:opacity-100`}
         />
       )}
 
@@ -151,15 +147,15 @@ const JingleCard = ({
                   {jingle.client}
                 </span>
              </div>
-            <h3 className="text-white text-2xl md:text-3xl font-bold tracking-tight leading-none group-hover:text-[#5eead4] transition-colors">
+            <h3 className="text-white text-2xl md:text-3xl font-bold tracking-tight leading-none md:group-hover:text-[#5eead4] transition-colors">
               {jingle.title}
             </h3>
           </div>
           {!['habesha', 'yango', 'sampolo'].includes(jingle.id) && (
             <Magnetic>
-              <div className="w-20 h-20 md:w-24 md:h-24 rounded-[20px] bg-white/5 border border-white/10 flex items-center justify-center p-2 md:p-3 overflow-hidden group-hover:bg-white/10 transition-all shadow-xl hover:shadow-[#5eead4]/20 cursor-pointer">
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-[20px] bg-white/5 border border-white/10 flex items-center justify-center p-2 md:p-3 overflow-hidden md:group-hover:bg-white/10 transition-all shadow-xl hover:shadow-[#5eead4]/20 cursor-pointer">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={jingle.logo} alt="" className="w-full h-full object-contain rounded-xl group-hover:scale-110 transition-transform duration-500" />
+                <img src={jingle.logo} alt="" className="w-full h-full object-contain rounded-xl md:group-hover:scale-110 transition-transform duration-500" />
               </div>
             </Magnetic>
           )}
@@ -174,7 +170,7 @@ const JingleCard = ({
                 className={`w-16 h-16 rounded-full flex items-center justify-center transition-all duration-500 shadow-2xl ${
                   isPlaying 
                   ? 'bg-white text-black scale-110' 
-                  : 'bg-[#5eead4] text-black hover:scale-110'
+                  : 'bg-[#5eead4] text-black md:hover:scale-110'
                 }`}
               >
                 {isPlaying ? <Pause size={24} fill="currentColor" /> : <Play size={24} fill="currentColor" className="ml-1" />}
@@ -217,7 +213,7 @@ const JingleCard = ({
                 style={{ width: `${progress}%` }}
               />
               {/* Invisible touch target for better seeking */}
-              <div className="absolute inset-[-10px] z-0" />
+              <div className="absolute inset-[-15px] md:inset-[-10px] z-0" />
             </div>
             
             <div className="flex justify-between text-[11px] font-mono tracking-widest text-white/40">
@@ -253,9 +249,9 @@ export default function Jingles() {
   const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
 
   return (
-    <section ref={containerRef} className="w-full py-28 md:py-32 px-6 sm:px-10 md:px-32 bg-[#0d2c2c] relative z-20 border-t border-white/5">
+    <section ref={containerRef} className="w-full py-16 md:py-32 px-6 sm:px-10 md:px-32 bg-[#0d2c2c] relative z-20 border-t border-white/5">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20">
           <div>
             <div className="flex items-center gap-3 mb-6">
               <Volume2 className="text-[#5eead4]" size={24} />
@@ -266,7 +262,7 @@ export default function Jingles() {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-5xl sm:text-6xl md:text-8xl font-bold tracking-[-0.06em] leading-[0.94] text-white/90"
+              className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-[-0.06em] leading-[0.94] text-white/90"
             >
               JINGLES &<br/>BRANDING
             </motion.h2>

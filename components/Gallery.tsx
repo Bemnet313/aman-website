@@ -91,15 +91,15 @@ export default function Gallery() {
 
   return (
     <>
-      <section ref={containerRef} className="w-full py-28 md:py-32 px-6 sm:px-10 md:px-32 bg-[#0d2c2c] relative z-20">
+      <section ref={containerRef} className="w-full py-16 md:py-32 px-6 sm:px-10 md:px-32 bg-[#0d2c2c] relative z-20">
         <div className="max-w-7xl mx-auto">
-          <div className="overflow-hidden mb-20 flex flex-col md:flex-row justify-between items-start md:items-end">
+          <div className="overflow-hidden mb-12 md:mb-20 flex flex-col md:flex-row justify-between items-start md:items-end">
             <motion.h2 
               initial={{ y: "100%" }}
               whileInView={{ y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-5xl sm:text-6xl md:text-8xl font-bold tracking-[-0.06em] leading-[0.94] text-white/90"
+              className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-[-0.06em] leading-[0.94] text-white/90"
             >
               BEHIND<br/><span className="text-[#5eead4]">THE SCENES</span>
             </motion.h2>
@@ -133,24 +133,24 @@ export default function Gallery() {
                   className={`${layout.colSpan} surface-card relative group overflow-hidden bg-black rounded-[28px] ${layout.aspect} cursor-pointer`}
                 >
                   <div 
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-[1.04] filter grayscale group-hover:grayscale-0 opacity-72 group-hover:opacity-100 mix-blend-luminosity group-hover:mix-blend-normal"
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 md:group-hover:scale-[1.04] filter md:grayscale md:group-hover:grayscale-0 opacity-72 md:group-hover:opacity-100 mix-blend-luminosity md:group-hover:mix-blend-normal"
                     style={{ backgroundImage: `url(${album.cover})` }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-100 group-hover:opacity-70 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-100 md:group-hover:opacity-70 transition-opacity duration-500" />
                   
                   {/* Photo count indicator */}
-                  <div className="absolute top-8 right-8 flex items-center space-x-2 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
+                  <div className="absolute top-6 right-6 md:top-8 md:right-8 flex items-center space-x-2 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
                     <Layers size={14} className="text-[#5eead4]" />
                     <span className="text-white text-xs font-bold tracking-widest">{totalPhotos} PHOTOS</span>
                   </div>
 
                   {/* Title and Zoom Icon */}
-                  <div className="absolute bottom-8 left-8 right-8 flex justify-between items-end">
-                    <p className="text-white text-lg md:text-2xl font-bold tracking-[0.2em] opacity-80 translate-y-0 group-hover:opacity-100 transition-all duration-500 max-w-[80%] uppercase">
+                  <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8 flex justify-between items-end">
+                    <p className="text-white text-lg md:text-2xl font-bold tracking-[0.2em] opacity-80 translate-y-0 md:group-hover:opacity-100 transition-all duration-500 max-w-[80%] uppercase">
                       {album.title}
                     </p>
                     <Magnetic>
-                      <div className="button-shell w-11 h-11 rounded-full backdrop-blur-md flex items-center justify-center opacity-80 group-hover:opacity-100 transition-all duration-500 delay-100 hover:bg-[#5eead4] hover:text-black text-white">
+                      <div className="button-shell w-11 h-11 rounded-full backdrop-blur-md flex items-center justify-center opacity-80 md:group-hover:opacity-100 transition-all duration-500 delay-100 md:hover:bg-[#5eead4] md:hover:text-black text-white">
                         <ZoomIn size={16} />
                       </div>
                     </Magnetic>
