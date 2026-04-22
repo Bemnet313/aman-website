@@ -10,25 +10,25 @@ name: Deploy Website
    10     name: 🎉 Deploy
    11     runs-on: ubuntu-latest
    12     steps:
-   13     - name: 🚚 Get latest code
-   14       uses: actions/checkout@v4
+   13       - name: 🚚 Get latest code
+   14         uses: actions/checkout@v4
    15
-   16     - name: ⚙️ Set up Node.js
-   17       uses: actions/setup-node@v4
-   18       with:
-   19         node-version: '20'
+   16       - name: ⚙️ Set up Node.js
+   17         uses: actions/setup-node@v4
+   18         with:
+   19           node-version: '20'
    20
-   21     - name: 📦 Install dependencies
-   22       run: npm install
+   21       - name: 📦 Install dependencies
+   22         run: npm install
    23
-   24     - name: 🏗️ Build Project
-   25       run: npm run build
+   24       - name: 🏗️ Build Project
+   25         run: npm run build
    26
-   27     - name: 🚀 Sync files via FTP
-   28       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-   29       with:
-   30         server: ${{ secrets.FTP_SERVER }}
-   31         username: ${{ secrets.FTP_USERNAME }}
-   32         password: ${{ secrets.FTP_PASSWORD }}
-   33         local-dir: ./out/
-   34         server-dir: ./httpdocs/
+   27       - name: 🚀 Sync files via FTP
+   28         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+   29         with:
+   30           server: ${{ secrets.FTP_SERVER }}
+   31           username: ${{ secrets.FTP_USERNAME }}
+   32           password: ${{ secrets.FTP_PASSWORD }}
+   33           local-dir: ./out/
+   34           server-dir: ./httpdocs/
